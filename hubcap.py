@@ -7,11 +7,11 @@ import typer
 from rich import print
 
 
-SYSTEM = """
-you are a coding agent. 
-you can read and write files. Eg `cat helloworld.txt`, `echo "hello\nworld" > helloworld.txt` output the next command required to progress your goal. 
-output `DONE` when done.
-"""
+SYSTEM = (
+    "you are a coding agent. "
+    """you can read and write files. Eg `cat helloworld.txt`, `echo "hello\nworld" > helloworld.txt` output the next command required to progress your goal. """
+    "output `DONE` when done."
+)
 
 
 def chat(*, prompt: str, system: str | None = None) -> str:
