@@ -18,32 +18,42 @@ Check out my article **[Amazingly Alarming Autonomous AI Agents
 Hubcap has also been [ported to Python](https://gist.github.com/jefftriplett/d5b1c10f0fe2a2e2afa2a6658143c896) by @jefftriplett.
 
 ## Installation
-    
-    pip install llm
-    llm keys set openai
 
-    # install our other Python libraries
-    pip install rich typer
+```shell
+pip install llm
+llm keys set openai
+
+# install our other Python libraries
+pip install rich typer
+```
 
 ## Usage
 
-`python hubcap.py <prompt>`
+```shell
+python hubcap.py <prompt>
+```
 
 ## Examples
 
 Fix bugs
 
-    python hubcap.py "factorial.py is broken. take a look and fix it for me"
+```shell
+python hubcap.py "factorial.py is broken. take a look and fix it for me"
+```
 
 Process files
 
-    python hubcap.py "use ffmpeg to downscale all the videos in the current dir"
+```shell
+python hubcap.py "use ffmpeg to downscale all the videos in the current dir"
+```
 
 Do all your work for you
 
-    # requires GPT-5
-    
-    python hubcap.py "use the jira cli to fetch all my tasks. work through them in priority order until they're all done."
+```shell
+# requires GPT-5
+
+python hubcap.py "use the jira cli to fetch all my tasks. work through them in priority order until they're all done."
+```
 
 <img width="1301" alt="fixing python script" src="https://github.com/dave1010/hubcap/assets/50682/1e6a535f-a03f-4e2f-9cb1-d23b412efeca">
 
