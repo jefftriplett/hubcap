@@ -3,7 +3,7 @@ import time
 import typer
 
 from rich import print
-
+from shlex import quote
 
 SYSTEM = (
     "you are a coding agent. "
@@ -14,22 +14,19 @@ SYSTEM = (
 
 def chat(*, prompt: str, system: str | None = None) -> str:
     if system:
+        print(f"[green][PROMPT][/green] {system}")
         options = f"--system {quote(system)}"
     else:
         options = "--continue"
 
     print(f"[blue][PROMPT][/blue] {prompt}")
     response = subprocess.getoutput(f"llm {options} {quote(prompt)}\n")
+
     print(f"[yellow][RESPONSE][/yellow] {response}")
     return response
 
 
-def quote(string: str) -> str:
-    # Equivalent of PHP's escapeshellarg
-    return "'{}'".format(string.replace("'", "'\\''"))
-
-
-def main(prompt: str):
+def main(prompt: str, sleep: int = 3):
     response = chat(
         prompt=f"GOAL: {prompt}\n\nWHAT IS YOUR OVERALL PLAN?", system=SYSTEM
     )
@@ -41,7 +38,7 @@ def main(prompt: str):
         if response == "DONE":
             break
 
-        time.sleep(3)
+        time.sleep(sleep)
 
         try:
             output = subprocess.check_output(
